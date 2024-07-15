@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextBlue">
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <style name="TextNavi">
+        <item name="android:textColor">@color/navi</item>
+    </style>
+
+    <style name="TextBlue.20" parent="TextBlue">
+        <item name="android:textSize">@dimen/_20sp</item>
+    </style>
+
+    <style name="TextBlue.14" parent="TextNavi">
+        <item name="android:textSize">@dimen/_14sp</item>
+    </style>
+
+    <style name="TextBlue.12" parent="TextNavi">
+        <item name="android:textSize">@dimen/_12sp</item>
+    </style>
+
+
+</resources>
