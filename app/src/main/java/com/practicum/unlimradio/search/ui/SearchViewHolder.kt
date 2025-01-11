@@ -1,6 +1,5 @@
 package com.practicum.unlimradio.search.ui
 
-import android.annotation.SuppressLint
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -35,7 +34,7 @@ class SearchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 append(bitrate.toString())
                 append(" kbps")
             }
-            countryStation.text = countrycode
+            countryStation.text = countryCode
             languageStation.text = language
         }
     }

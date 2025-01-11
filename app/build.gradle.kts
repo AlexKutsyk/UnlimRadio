@@ -1,11 +1,14 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.devtools.ksp")
+    id("kotlin-kapt")
+    id ("kotlin-parcelize")
 }
 
 android {
     namespace = "com.practicum.unlimradio"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.practicum.unlimradio"
@@ -21,8 +24,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -49,16 +51,32 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
-    //retrofit
+    //Retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
 
-    //koin
-    implementation (libs.koin.android)
+    //Koin
+//    implementation (libs.koin.android)
 
-    //glide
+    //Glide
     implementation(libs.glide)
 
+    //Dagger2
+    implementation(libs.dagger.compiler)
+    implementation(libs.dagger.android)
+    kapt(libs.dagger.compiler)
+
+    //Exo Player
+    implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.androidx.media3.ui)
+    implementation(libs.androidx.media3.common)
+    implementation(libs.androidx.media3.session)
+    implementation(libs.androidx.media3.exoplayer.hls)
+
+    //Room
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

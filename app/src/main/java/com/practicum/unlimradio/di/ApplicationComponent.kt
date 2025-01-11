@@ -1,0 +1,22 @@
+package com.practicum.unlimradio.di
+
+import com.practicum.unlimradio.favorites.ui.FavoritesFragment
+import com.practicum.unlimradio.main.ui.MainActivity
+import com.practicum.unlimradio.search.ui.SearchFragment
+import dagger.Component
+import javax.inject.Singleton
+
+@Singleton
+@Component(
+    modules = [
+        DataModule::class,
+        DomainModule::class,
+        ViewModelModule::class,
+        ContextModule::class,
+    ]
+)
+interface ApplicationComponent {
+    fun inject(fragment: SearchFragment)
+    fun inject(activity: MainActivity)
+    fun inject(fragment: FavoritesFragment)
+}

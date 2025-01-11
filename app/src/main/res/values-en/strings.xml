@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Unlimradio</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="search">Search</string>
+    <string name="favorites">Favorites</string>
+    <string name="check_internet_connection">Check internet connection</string>
+    <string name="nothing_was_found_for_this_query">Nothing was found for this query</string>
+    <string name="server_error">Server error</string>
+    <string name="play">Play</string>
+    <string name="stop">Stop</string>
+    <string name="empty_text" />
+    <string name="on_air">On Air</string>
+    <string name="station_search">Station search</string>
+    <string name="add_favorite_stations">Add your favorite stations here</string>
+</resources>

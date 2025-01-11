@@ -12,8 +12,9 @@ import com.practicum.unlimradio.search.data.dto.StationSearchRequest
 import com.practicum.unlimradio.search.data.dto.StationSearchResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class RetrofitNetworkClient(
+class RetrofitNetworkClient @Inject constructor (
     private val radioBrowserApiService: RadioBrowserApiService,
     private val context: Context
 ) : NetworkClient {

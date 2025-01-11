@@ -1,15 +1,17 @@
 <resources>
     <string name="app_name">Unlimradio</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">Главная</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="search">Search</string>
-    <string name="favorites">Favorites</string>
-    <string name="check_internet_connection">Check internet connection</string>
-    <string name="nothing_was_found_for_this_query">Nothing was found for this query</string>
-    <string name="server_error">Server error</string>
+    <string name="search">Поиск</string>
+    <string name="favorites">Избранные</string>
+    <string name="check_internet_connection">Проверьте подключение к интернет</string>
+    <string name="nothing_was_found_for_this_query">По запросу ничего не найдено</string>
+    <string name="server_error">Ошибка сервера</string>
     <string name="play">Play</string>
     <string name="stop">Stop</string>
     <string name="empty_text" />
     <string name="on_air">On Air</string>
+    <string name="station_search">Поиск радиостанций</string>
+    <string name="add_favorite_stations">Добавьте сюда любимые радиостанции</string>
 </resources>

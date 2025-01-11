@@ -1,38 +1,32 @@
 package com.practicum.unlimradio.di
 
+import com.practicum.unlimradio.favorites.data.FavoritesRepositoryImpl
+import com.practicum.unlimradio.favorites.domain.api.FavoritesRepository
 import com.practicum.unlimradio.search.data.api.NetworkClient
-import com.practicum.unlimradio.search.data.api.RadioBrowserApiService
 import com.practicum.unlimradio.search.data.impl.SearchRepositoryImpl
 import com.practicum.unlimradio.search.data.network.RetrofitNetworkClient
 import com.practicum.unlimradio.search.domain.api.SearchRepository
-import org.koin.android.ext.koin.androidContext
-import org.koin.dsl.module
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import dagger.Binds
+import dagger.Module
+import javax.inject.Singleton
 
-const val BASE_URL = "https://at1.api.radio-browser.info/"
+@Module(
+    includes = [
+        NetworkModule::class,
+        DatabaseModule::class
+    ]
+)
+interface DataModule {
 
-val dataModule = module {
+    @Singleton
+    @Binds
+    fun bindRetrofitNetworkClient(retrofitNetworkClient: RetrofitNetworkClient): NetworkClient
 
-    single<RadioBrowserApiService> {
-        Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(RadioBrowserApiService::class.java)
-    }
+    @Singleton
+    @Binds
+    fun bindSearchRepository(searchRepositoryImpl: SearchRepositoryImpl): SearchRepository
 
-    single<NetworkClient> {
-        RetrofitNetworkClient(
-            get(),
-            androidContext()
-        )
-    }
-
-    single<SearchRepository> {
-        SearchRepositoryImpl(
-            get(),
-            androidContext()
-        )
-    }
+    @Singleton
+    @Binds
+    fun bindFavoritesRepository(favoritesRepositoryImpl: FavoritesRepositoryImpl): FavoritesRepository
 }
