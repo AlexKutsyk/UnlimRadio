@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_favorites"
-        android:name="com.practicum.unlimradio.favorites.FavoritesFragment"
+        android:name="com.practicum.unlimradio.favorites.ui.FavoritesFragment"
         android:label="@string/favorites"
         tools:layout="@layout/fragment_favorites" />
 

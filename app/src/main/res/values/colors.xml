@@ -11,7 +11,10 @@
     <color name="navi">#2196F3</color>
     <color name="light_navi">#239DFF</color>
     <color name="blue">#0172CC</color>
-    <color name="red">#F65043</color>
+    <color name="blue_10">#CFE9FF</color>
+    <color name="blue_10_alfa_80">#CDCFE9FF</color>
+    <color name="red">#B50D00</color>
     <color name="light_grey">#E8E8E8</color>
     <color name="grey">#9A9A9A</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

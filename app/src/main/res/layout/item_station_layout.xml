@@ -7,12 +7,13 @@
     android:layout_marginVertical="@dimen/_4dp"
     android:background="@drawable/item_recycle_view_background"
     android:clickable="true"
+    android:layout_marginHorizontal="@dimen/_16dp"
     >
 
     <ImageView
         android:id="@+id/logo_station"
-        android:layout_width="@dimen/_80dp"
-        android:layout_height="@dimen/_80dp"
+        android:layout_width="@dimen/_60dp"
+        android:layout_height="@dimen/_60dp"
         android:layout_marginVertical="@dimen/_8dp"
         android:layout_marginStart="@dimen/_8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,7 +23,7 @@
 
     <TextView
         android:id="@+id/name_station"
-        style="@style/TextBlue.20"
+        style="@style/TextBlue.16"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_8dp"
@@ -56,7 +57,9 @@
         android:layout_marginTop="@dimen/_2dp"
         app:layout_constraintStart_toStartOf="@id/name_station"
         app:layout_constraintTop_toBottomOf="@id/tv_tags"
-        tools:text="AAC" />
+        tools:text="AAC"
+        android:alpha=".5"
+        />
 
     <TextView
         android:id="@+id/tv_bitrate"
@@ -67,17 +70,22 @@
         app:layout_constraintBottom_toBottomOf="@id/tv_codec"
         app:layout_constraintStart_toEndOf="@id/tv_codec"
         app:layout_constraintTop_toTopOf="@id/tv_codec"
-        tools:text="128" />
+        tools:text="128"
+        android:alpha=".5"
+        />
 
     <TextView
         android:id="@+id/tv_country_code"
         style="@style/TextBlue.12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_2dp"
-        app:layout_constraintStart_toStartOf="@id/name_station"
-        app:layout_constraintTop_toBottomOf="@id/tv_codec"
-        tools:text="RU" />
+        android:layout_marginStart="@dimen/_4dp"
+        app:layout_constraintStart_toEndOf="@id/tv_bitrate"
+        app:layout_constraintTop_toTopOf="@id/tv_codec"
+        app:layout_constraintBottom_toBottomOf="@id/tv_codec"
+        tools:text="RU"
+        android:alpha=".5"
+        />
 
     <TextView
         android:id="@+id/tv_language"
@@ -91,6 +99,8 @@
         app:layout_constraintEnd_toEndOf="@id/name_station"
         app:layout_constraintStart_toEndOf="@id/tv_country_code"
         app:layout_constraintTop_toTopOf="@id/tv_country_code"
-        tools:text="russian" />
+        tools:text="russian"
+        android:alpha=".5"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

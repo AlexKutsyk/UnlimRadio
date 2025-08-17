@@ -1,12 +1,16 @@
 package com.practicum.unlimradio.di
 
-import com.practicum.unlimradio.search.ui.SearchViewModel
-import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.dsl.module
+import androidx.lifecycle.ViewModel
+import com.practicum.unlimradio.search.presentation.SearchViewModel
+import dagger.Binds
+import dagger.Module
+import dagger.multibindings.IntoMap
 
-val viewModelModule = module {
+@Module
+interface ViewModelModule {
 
-    viewModel {
-        SearchViewModel(get())
-    }
+    @IntoMap
+    @ViewModelKey(SearchViewModel::class)
+    @Binds
+    fun bindSearchViewModel(searchViewModel: SearchViewModel): ViewModel
 }
