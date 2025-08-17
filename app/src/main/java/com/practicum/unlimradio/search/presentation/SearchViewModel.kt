@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.practicum.unlimradio.search.domain.api.SearchInteractor
 import com.practicum.unlimradio.search.domain.model.Station
 import com.practicum.unlimradio.search.presentation.models.ScreenState
+import com.practicum.unlimradio.extraStation.domain.api.ExtraStationInteractor
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
@@ -12,10 +14,13 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class SearchViewModel @Inject constructor(
-    private val searchInteractor: SearchInteractor
+    private val searchInteractor: SearchInteractor,
+    private val extraStationInteractor: ExtraStationInteractor
 ) : ViewModel() {
     private var _uiState = MutableStateFlow<ScreenState>(ScreenState.Default)
     val uiState = _uiState.asStateFlow()
+    var extraStationState = MutableSharedFlow<Boolean>()
+        private set
 
     fun searchStation(name: String) {
         _uiState.value = ScreenState.Loading
@@ -24,6 +29,12 @@ class SearchViewModel @Inject constructor(
                 handleSearch(result)
                 true
             }
+        }
+    }
+
+    fun getSecretStation() {
+        viewModelScope.launch {
+            extraStationState.emit(extraStationInteractor.getExtraStation())
         }
     }
 

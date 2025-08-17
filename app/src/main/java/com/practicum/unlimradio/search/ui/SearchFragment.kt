@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -71,7 +72,7 @@ class SearchFragment : Fragment() {
     private fun setOnClickListener() {
         with(binding) {
             fsEditText.setOnEditorActionListener { _, actionId, _ ->
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH && checkLengthEditText(editTextSearch)) {
                     hideKeyboard(this@SearchFragment)
                     viewModel.searchStation(editTextSearch)
                     fsRvStationList.smoothScrollToPosition(0)
@@ -80,7 +81,16 @@ class SearchFragment : Fragment() {
             }
             fsIvIconClear.setOnClickListener {
                 fsEditText.setText(getString(R.string.empty_text))
+                viewModel.getSecretStation()
             }
+            fsIvIconSearch.setOnClickListener {
+                if (checkLengthEditText(editTextSearch)) {
+                    hideKeyboard(this@SearchFragment)
+                    viewModel.searchStation(editTextSearch)
+                    fsRvStationList.smoothScrollToPosition(0)
+                }
+            }
+            fsIvIconSettings.setOnClickListener { }
         }
     }
 
@@ -122,6 +132,21 @@ class SearchFragment : Fragment() {
                         ScreenState.Loading -> renderProgress()
                     }
 
+                }
+            }
+        }
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.extraStationState.collect { extraStationState ->
+                    if (extraStationState) {
+                        Toast
+                            .makeText(
+                                context,
+                                getString(R.string.station_added),
+                                Toast.LENGTH_SHORT
+                            )
+                            .show()
+                    }
                 }
             }
         }
@@ -176,6 +201,19 @@ class SearchFragment : Fragment() {
             tvMessage.isVisible = false
             progressCircular.isVisible = false
             fsRvStationList.isVisible = true
+        }
+    }
+
+    private fun checkLengthEditText(text: String): Boolean {
+        return if (text.trim().length < 3) {
+            Toast.makeText(
+                context,
+                getString(R.string.query_length_must_be_more_than_2_letters),
+                Toast.LENGTH_SHORT
+            ).show()
+            false
+        } else {
+            true
         }
     }
 }

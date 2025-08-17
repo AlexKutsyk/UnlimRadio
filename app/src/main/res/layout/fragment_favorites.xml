@@ -10,7 +10,7 @@
         android:id="@+id/fs_rv_stationList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingTop="@dimen/_8dp"
+        android:paddingTop="@dimen/_12dp"
         android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,7 +1,5 @@
 package com.practicum.unlimradio.favorites.data.converter
 
-import android.graphics.Bitmap
-import com.google.gson.Gson
 import com.practicum.unlimradio.favorites.data.entity.StationEntity
 import com.practicum.unlimradio.search.domain.model.Station
 import javax.inject.Inject

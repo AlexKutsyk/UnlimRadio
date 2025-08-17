@@ -55,15 +55,13 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
 
-    //Koin
-//    implementation (libs.koin.android)
-
     //Glide
     implementation(libs.glide)
 
     //Dagger2
     implementation(libs.dagger.compiler)
     implementation(libs.dagger.android)
+    implementation(libs.androidx.runner)
     kapt(libs.dagger.compiler)
 
     //Exo Player
@@ -77,6 +75,9 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
+
+    //DataStore
+    implementation(libs.androidx.datastore.preferences)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

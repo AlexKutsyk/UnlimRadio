@@ -15,4 +15,6 @@
     <string name="on_air">On Air</string>
     <string name="station_search">Station search</string>
     <string name="add_favorite_stations">Add your favorite stations here</string>
+    <string name="query_length_must_be_more_than_2_letters">The query length must be more than 2 letters</string>
+    <string name="station_added">Station added</string>
 </resources>

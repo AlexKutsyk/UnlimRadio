@@ -14,4 +14,6 @@
     <string name="on_air">On Air</string>
     <string name="station_search">Поиск радиостанций</string>
     <string name="add_favorite_stations">Добавьте сюда любимые радиостанции</string>
+    <string name="query_length_must_be_more_than_2_letters">Длина запроса должна быть больше 2 букв</string>
+    <string name="station_added">Станция добавлена</string>
 </resources>

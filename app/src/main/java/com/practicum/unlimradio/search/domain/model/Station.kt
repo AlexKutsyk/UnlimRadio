@@ -6,8 +6,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Station(
-    val stationUuid: String,
-    val name: String,
+    val stationUuid: String = "",
+    val name: String = "",
     val url: String? = null,
     val urlResolved: String? = null,
     val favicon: String? = null,

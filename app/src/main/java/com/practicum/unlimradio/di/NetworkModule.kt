@@ -18,6 +18,6 @@ class NetworkModule() {
     }
 
     companion object {
-        const val BASE_URL = "https://at1.api.radio-browser.info/"
+        const val BASE_URL = "https://de1.api.radio-browser.info/"
     }
 }
